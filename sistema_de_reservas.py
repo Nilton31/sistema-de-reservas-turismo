@@ -118,12 +118,19 @@ def Excluir_Cadastro_Destino(curson, conexao):
 
 # atualiza dados do cliente
 def Atualiza_Dados(conexao, curson):
+  print("".center(90,"-"))
+  print("""PARA ATUALIZAR O ENDEREÇO DO USUÁRIO SIGA AS INSTRUÇÕES ABAIXO:
+                1. Informe o nome do usuário para localiza no banco.
+                2. Informe a numeração da residência.
+                3. Informe a cidade.
+                4. Informe o estado.
+        """)
   nome_atualizar = input("digiter o nome: ")
 # atualizando o endereço
-  rua_atualizar = input("informe o nome da nova rua: ")
-  numero_atualizar = input("informe a nova númera da casa: ")
-  cidade_atualizar = input("informe nome da nova cidade: ")
-  estado_atualizar = input("informe o novo estado: ")
+  rua_atualizar = input("informe o nome da rua: ")
+  numero_atualizar = input("informe a numeração da residência: ")
+  cidade_atualizar = input("informe a cidade: ")
+  estado_atualizar = input("informe o estado: ")
   curson.execute("UPDATE usuarios SET rua = ? where nome = ?" , (rua_atualizar, nome_atualizar))
   curson.execute("UPDATE usuarios SET cidade = ? where nome = ?", (cidade_atualizar, nome_atualizar))
   curson.execute("UPDATE usuarios SET numero = ? where nome = ?", (numero_atualizar, nome_atualizar,))
